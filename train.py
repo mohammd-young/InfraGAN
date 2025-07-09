@@ -24,7 +24,7 @@ visualizer.plot_data = {'train': OrderedDict((k, []) for k in hist_error.keys())
 eval = Evalulate(opt)
 if opt.continue_train:
     p = os.path.join(model.save_dir, "history.pth")
-    hist = torch.load(p)
+    hist = torch.load(p, weights_only=False) #my change
     visualizer.plot_data = hist['plot_data']
     visualizer.metric_data = hist['metric']
 
